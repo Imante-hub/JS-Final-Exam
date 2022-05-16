@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weight Converter</title>
+</head>
+
+<body>
+
+    <h2 style="color: black; background-color: yellow;">Weight Converter</h2>
+
+    <p>Enter kilograms :</p>
+
+
+
+    <p>
+
+        <label>Kilograms</label>
+
+        <input id="Kilograms" type="number" placeholder="kilograms" oninput="kiloweightConvert(this.value)"
+            onchange="kiloweightConvert(this.value)" />
+    </p>
+
+
+    <p>Pounds: <span id="Pounds"></span></p>
+
+
+    <p>Ounces: <span id="Ounces"></span></p>
+
+
+    <p>Grams: <span id="Grams"></span></p>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
