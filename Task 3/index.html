@@ -2,37 +2,50 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Show Github users</title>
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./style1.css" />
-  <!-- Custom JS -->
-  <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Profile Fetch Api</title>
 </head>
+<!-- Žinau, čia visai ne tas, bandžiau perdaryti pagal pavyzdį, nespėjau :)-->
 
 <body>
-  <header>
-    <!-- Header code-->
-  </header>
-
-  <main>
-    <div class="wrapper">
-      <div class="btn-container">
-        <button id="btn">Show Users</button>
-      </div>
-      <div class="output-cointainer">
-        <h1>Github Users</h1>
-        <div id="output">
-          <!-- Results goes here -->
-          <p id="message">Press "Show Users" button to see users</p>
+    <div class="container">
+        <div class="search-area">
+            <input type="text" name="" id="username" placeholder="Enter Github Username" autocomplete="off">
+            <button onclick="getDetails();">Get Details</button>
         </div>
-      </div>
-    </div>
-  </main>
+        <div class="output-container" id="output">
+            <div class="profile" id="profile"></div>
+            <div class="username">
+                <h1 id="name"></h1>
+            </div>
+            <div class="bio">
+                <p id="bio"></p>
+            </div>
+            <div class="info">
+                <ul>
 
-  <footer>
-    <!-- Footer code -->
-  </footer>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    function getDetails() {
+        document.getElementById('output').style.display = "block";
+        const name = document.getElementById('username').value;
+        fetch(`https://api.github.com/users/${name}`)
+            .then(response => response.json().then(data => {
+                console.log(data)
+                document.getElementById('name').innerHTML = data.name;
+                document.getElementById('bio').innerHTML = data.bio;
+                document.getElementById('profile').innerHTML = `
+            <img src="${data.avatar_url}" />
+            `
+            }))
+    }
+</script>
 
 </html>

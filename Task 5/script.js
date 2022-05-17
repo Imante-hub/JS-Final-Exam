@@ -20,8 +20,13 @@ const users = [
   { id: "9", name: "Daniel Cane", age: 51, hasDog: true },
 ];
 
-let name = dogOwners
-  .filter((dogOwners) => animal.type === "hasDog")
-  .map((hasdog) => dogOwners);
+// ATSAKYMAS
 
-console.log(name); // [ 'Caro', 'Hamilton' ]
+const filterDogOwners = users.filter((user) => user.hasDog === true);
+console.log(filterDogOwners);
+
+function filterDogOwners(array) {
+  const hasDog = array.filter((owner) => owner.hasDog === true);
+
+  console.log(hasDog);
+}

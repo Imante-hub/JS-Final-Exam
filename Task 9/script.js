@@ -17,16 +17,15 @@ class Movie {
     this.budget = budget;
   }
 
-  getIntroduction = function () {
-    return `${this.title}, ${this.director}, ${this.budget}`;
-  };
-  getBudget() {
-    return this.budget - this.budget;
+  wasExpensive() {
+    return this.budget > 100000000;
   }
 }
-const Movie1 = new Movie("Avatar", "James Cameron", "237 000 000");
-const Movie2 = new Movie("Titanic", "James Cameron", "100 000 001");
 
-console.log(`${Movie1.getIntroduction()}, biudžetas ${Movie1.getBudget()} USD`);
+const avatarMovie = new Movie("Avatar", "James Cameron", 237000000);
 
-console.log(`${Movie2.getIntroduction()}, biudžetas ${Movie2.getBudget()} USD`);
+console.log(avatarMovie);
+console.log(
+  `${avatarMovie.title} movie was expensive ? =>`,
+  avatarMovie.wasExpensive()
+);
