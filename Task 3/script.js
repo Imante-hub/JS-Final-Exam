@@ -10,18 +10,3 @@ Paspaudus mygtuką "Show users":
 Pastaba: Sukurta kortelė, kurioje yra pateikiama vartotojo informacija, turi 
 turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
-
-const ENDPOINT = "https://api.github.com/users";
-
-function getDetails() {
-  const name = document.getElementById("login").value;
-  fetch(`https://api.github.com/users/${name}`).then((response) =>
-    response.json().then((data) => {
-      console.log(data);
-      document.getElementById("name").innerHTML = data.name;
-      document.getElementById("profile").innerHTML = `
-      <img src="${data.avatar_url}" />
-      `;
-    })
-  );
-}
